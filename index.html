@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satar Yapı İnşaat | Ana Sayfa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="logo-area">
+                <img src="images/logo.jpeg" alt="Satar Yapı Logo" class="main-logo">
+                <span class="logo-text">SATAR YAPI İNŞAAT</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="#projeler">Projelerimiz</a></li>
+                    <li><a href="ilanlar.html" class="highlight">İlanlar</a></li>
+                    <li><a href="#hakkimizda">Hakkımızda</a></li>
+                    <li><a href="#hizmetler">Hizmetlerimiz</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                    <div class="contact-buttons">
+
+                        <a href="tel:+905354844241" class="tel-btn">
+                            📞 Ara
+                        </a>
+
+                        <a href="https://wa.me/905354844241" target="_blank" class="wp-btn">
+                            WhatsApp
+                        </a>
+
+                    </div>
+                </ul>
+                <div class="search-box">
+                    <input type="text" placeholder="İlan Ara...">
+                    <button>🔍</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-slider">
+            <div class="hero-item active">
+                <img src="images/bina2.jpeg" alt="">
+                <div class="hero-overlay">
+                    <h2>REFERANS PROJE: LÜKS DAİRELER </h2>
+                </div>
+            </div>
+            <div class="hero-item">
+                <img src="images/yeni_referans_bina.jpeg" alt="Referans Proje 2">
+                <div class="hero-overlay">
+                </div>
+            </div>
+        </div>
+    </section>
+                <section id="projeler" class="project-section">
+                    <h2 class="section-title">BİTMİŞ PROJELERİMİZ</h2>
+
+                    <div class="image-grid">
+
+                        <div class="project-card">
+                            <img src="images/bina1.jpeg" alt="">
+                        </div>
+                        <div class="project-card">
+                            <img src="images/bina1açı2.jpeg" alt="">
+                        </div>
+
+                        <div class="project-card">
+                            <img src="images/bina2.jpeg" alt="">
+                        </div>
+
+                        <div class="project-card">
+                            <img src="images\kiralık21.jpeg" alt="">
+                        </div>
+
+                    </div>
+                </section>
+
+    <section class="project-section ongoing">
+        <h2 class="section-title">YAPIM AŞAMASINDAKİ PROJELER</h2>
+        <div class="project-container">
+            <div class="ongoing-grid">
+                <div class="ongoing-item">
+                    <img src="images/yapim1.jpg" alt="Yapım 1">
+                    <p>Satar Rezidans - Temel Çalışması</p>
+                </div>
+                <div class="ongoing-item">
+                    <img src="images/yapim2.jpg" alt="Yapım 2">
+                    <p>Merkez Evleri - Kaba İnşaat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="hakkimizda" class="about-section">
+        <section class="services-mini">
+            <h2 class="section-title">ÇALIŞMA ALANLARIMIZ</h2>
+
+            <div class="services-grid">
+
+                <div class="service-box">
+                    <h3>Konut İnşaatı</h3>
+                    <p>Modern ve güvenli yaşam alanları inşa ediyoruz.</p>
+                </div>
+
+                <div class="service-box">
+                    <h3>Proje Uygulama</h3>
+                    <p>Ruhsatlı projeleri profesyonel şekilde hayata geçiriyoruz.</p>
+                </div>
+
+                <div class="service-box">
+                    <h3>Şantiye Yönetimi</h3>
+                    <p>İnşaat sürecini baştan sona kontrol ediyoruz.</p>
+                </div>
+
+            </div>
+        </section>
+    <footer>
+        <div class="footer-col" id="iletisim">
+            <h4>İletişim</h4>
+
+            <p>📍 İskenderun, Hatay</p>
+            <p>📞 +90 5354844241</p>
+            <p>📧 https://www.instagram.com/satar.yapi?igsh=aGRzdTRjNjhxMHp5</p>
+
+            <div class="social-icons">
+                <a href="https://wa.me/905354844241" target="_blank">💬 WhatsApp/a>
+                    <a href="https://www.instagram.com/satar.yapi?igsh=aGRzdTRjNjhxMHp5" target="_blank">📸 Instagram</a>
+                    <a href="tel:+905354844241">📞 Ara</a>
+</div>
+        </div>
+            <div class="footer-col">
+                <h4>Sosyal Medya</h4>
+                <div class="social-icons">f | i | in</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 SATAR YAPI İNŞAAT - Tüm hakları saklıdır.
+        </div>
+    </footer>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-item');
+
+        function nextSlide() {
+            if (slides.length === 0) return; // Hata vermemesi için kontrol
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Her 4 saniyede bir değiştirir
+        setInterval(nextSlide, 4000);
+    </script>
+
+</body>
+</html>

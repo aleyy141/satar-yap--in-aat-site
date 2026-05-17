@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlanlar | SATAR YAPI İNŞAAT</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-top">
+
+            <div class="logo-area">
+                <img src="images/logo.jpeg" class="main-logo">
+                <span class="logo-text">SATAR YAPI İNŞAAT</span>
+            </div>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="ilanlar.html" class="highlight">İlanlar</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <section class="ilanlar-section">
+
+        <h2 class="section-title">SATILIK & KİRALIK İLANLAR</h2>
+        <div class="filter-bar">
+
+            <select id="typeFilter">
+                <option value="all">Tümü</option>
+                <option value="satilik">Satılık</option>
+                <option value="kiralik">Kiralık</option>
+            </select>
+
+            <select id="roomFilter">
+                <option value="all">Tüm Odalar</option>
+                <option value="1+1">1+1</option>
+                <option value="2+1">2+1</option>
+                <option value="3+1">3+1</option>
+            </select>
+
+        </div>
+
+        <div class="ilan-grid">
+
+            <div class="ilan-card" data-type="satilik" data-room="2+1">
+                <div class="ilan-slider">
+
+                    <img src="images/mutfak2.jpeg" class="active">
+                    <img src="images\salon3.jpeg" />
+                    <img src="images\oda2.jpeg" />
+                    <img src="images\satılıl1.jpeg" />
+                    <button class="prev">‹</button>
+                    <button class="next">›</button>
+                </div>
+                <span>₺ 2.450.000</span>
+
+            </div>
+
+
+            <div class="ilan-card" data-type="satilik" data-room="3+1">
+                <div class="ilan-slider">
+                    <img src="images/mutfak2.jpeg" class="active">
+                    <img src="images\salon3.jpeg" />
+                    <img src="images\oda2.jpeg" />
+                    <img src="images\satılıl1.jpeg" />
+                    <button class="prev">‹</button>
+                    <button class="next">›</button>
+                </div>
+                <span>₺ 3.100.000</span>
+            </div>
+
+            <div class="ilan-card" data-type="satilik" data-room=<"1+1">
+                <div class="ilan-slider">
+               <img src="images/mutfak2.jpeg" class="active">
+               <img src="images\salon3.jpeg" />
+               <img src="images\oda2.jpeg" />
+               <img src="images\satılıl1.jpeg" />
+              <button class="prev">‹</button>
+              <button class="next">›</button>
+                </div>
+                <button class="next">›</button>
+            </div>
+            <h3></h3>
+
+            <div class="ilan-card" data-type="kiralik" data-room="1+1">
+                <div class="ilan-slider">
+                    <img src="images\kiralık1.jpeg" class="active">
+                    <img src="images\kiralık8.jpeg" />
+                    <img src="images\kiralık10.jpeg" />
+                    <img src="images\satılıl1.jpeg" />
+                    <button class="prev">‹</button>
+                    <button class="next">›</button>
+                </div>
+                <div class="ilan-card" data-type="kiralik" data-room="1+1">
+                    <div class="ilan-slider">
+                        <img src="images\daire1.jpeg" class="active">
+                        <img src="images\daire2.jpeg" />
+                        <img src="images\daire3.jpeg" />
+                        <img src="images\daire4.jpeg" />
+                        <img src="images\daire5.jpeg" />
+                        <button class="prev">‹</button>
+                        <button class="next">›</button>
+                    </div>
+                    <div class="ilan-card" data-type="kiralik" data-room="1+1">
+                        <div class="ilan-slider">
+                            <img src="images\kiralık4.jpeg" class="active">
+                            <img src="images\kiralık15.jpeg" />
+                            <img src="images\daire3.jpeg" />
+                            <img src="images\satılıl1.jpeg" />
+                            <button class="prev">‹</button>
+                            <button class="next">›</button>
+                        </div>
+                        <h3>Yeni Proje</h3>
+                        <p>Yapım Aşamasında</p>
+                        <span>İletişime Geçin</span>
+                    </div>
+
+                </div>
+
+    </section>
+    <script>
+        const typeFilter = document.getElementById("typeFilter");
+        const roomFilter = document.getElementById("roomFilter");
+        const cards = document.querySelectorAll(".ilan-card");
+
+        function filterCards() {
+            const typeValue = typeFilter.value;
+            const roomValue = roomFilter.value;
+
+            cards.forEach(card => {
+                const type = card.getAttribute("data-type");
+                const room = card.getAttribute("data-room");
+
+                let show = true;
+
+                if (typeValue !== "all" && type !== typeValue) {
+                    show = false;
+                }
+
+                if (roomValue !== "all" && room !== roomValue) {
+                    show = false;
+                }
+
+                card.style.display = show ? "block" : "none";
+            });
+        }
+
+        typeFilter.addEventListener("change", filterCards);
+        roomFilter.addEventListener("change", filterCards);
+    </script>
+    <script>
+        document.querySelectorAll(".ilan-slider").forEach(slider => {
+
+            let images = slider.querySelectorAll("img");
+            let index = 0;
+
+            slider.querySelector(".next").onclick = () => {
+                images[index].classList.remove("active");
+                index = (index + 1) % images.length;
+                images[index].classList.add("active");
+            };
+
+            slider.querySelector(".prev").onclick = () => {
+                images[index].classList.remove("active");
+                index = (index - 1 + images.length) % images.length;
+                images[index].classList.add("active");
+            };
+
+        });
+    </script>
+</body>
+</html>

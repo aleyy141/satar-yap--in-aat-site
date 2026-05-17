@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>İlan Detay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h2>SATAR YAPI İNŞAAT</h2>
+    </header>
+
+    <h1 id="title"></h1>
+
+    <img id="img" class="big-img">
+
+    <h2 id="price"></h2>
+    <p id="desc"></p>
+
+    <script>
+        const id = new URLSearchParams(location.search).get("id");
+
+        // İLAN 1
+        if (id == "1") {
+            document.getElementById("title").innerText = "2+1 Modern Daire";
+            document.getElementById("price").innerText = "2.450.000 TL";
+            document.getElementById("desc").innerText = "Merkezi konumda modern daire";
+            document.getElementById("img").src = "images/bina1.jpeg";
+        }
+
+        // İLAN 2
+        else if (id == "2") {
+            document.getElementById("title").innerText = "3+1 Geniş Daire";
+            document.getElementById("price").innerText = "3.100.000 TL";
+            document.getElementById("desc").innerText = "Aileye uygun geniş daire";
+            document.getElementById("img").src = "images/bina2.jpeg";
+        }
+
+        // HATA
+        else {
+            document.body.innerHTML = "İlan bulunamadı";
+        }
+    </script>
+
+</body>
+</html>
